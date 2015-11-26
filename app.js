@@ -1,61 +1,110 @@
 /*
-    This file is generated and updated by Sencha Cmd. You can edit this file as
-    needed for your application, but these edits will have to be merged by
-    Sencha Cmd when it performs code generation tasks such as generating new
-    models, controllers or views and when running "sencha app upgrade".
+   This file is generated and updated by Sencha Cmd. You can edit this file as
+   needed for your application, but these edits will have to be merged by
+   Sencha Cmd when it performs code generation tasks such as generating new
+   models, controllers or views and when running "sencha app upgrade".
 
-    Ideally changes to this file would be limited and most work would be done
-    in other places (such as Controllers). If Sencha Cmd cannot merge your
-    changes and its generated code, it will produce a "merge conflict" that you
-    will need to resolve manually.
-*/
+   Ideally changes to this file would be limited and most work would be done
+   in other places (such as Controllers). If Sencha Cmd cannot merge your
+   changes and its generated code, it will produce a "merge conflict" that you
+   will need to resolve manually.
+   */
 
 Ext.application({
-    name: 'dia3',
+  name: 'dia3',
 
-    requires: [
-        'Ext.MessageBox'
-    ],
+  launch: function() {
 
-    views: [
-        'Main'
-    ],
+    Ext.define('ListItem', {
+      extend: 'Ext.data.Model',
+      config: {
+        fields: ['text']
+      }
+    });
 
-    icon: {
-        '57': 'resources/icons/Icon.png',
-        '72': 'resources/icons/Icon~ipad.png',
-        '114': 'resources/icons/Icon@2x.png',
-        '144': 'resources/icons/Icon~ipad@2x.png'
-    },
+    var treeStore = Ext.create('Ext.data.TreeStore', {
+      model: 'ListItem',
+      defaultRootProperty: 'items',
+      root: {
+        items: [
+          {
+            text: '마법사',
+            items: [
+              {
+                text: '주기술',
+                items: [
+                  { text: '마력탄', leaf: true },
+                  { text: '전기 충격', leaf: true },
+                  { text: '저승의 칼날', leaf: true },
+                  { text: '감전', leaf: true }
+                ]
+              },
+              { text: '보조기술',
+                items: [
+                  { text: '서리 광선', leaf: true },
+                  { text: '비전 보주', leaf: true },
+                  { text: '비전 격류', leaf: true },
+                  { text: '파열', leaf: true }
+                ]
+              },
+              { text: '방어',
+                items: [
+                  { text: '서릿발', leaf: true },
+                  { text: '다이아몬드 피부', leaf: true },
+                  { text: '감속 지대', leaf: true },
+                  { text: '순간이동', leaf: true }
+                ]
+              },
+              { text: '위력',
+                items: [
+                  { text: '힘의 파동', leaf: true },
+                  { text: '마력 돌개바람', leaf: true },
+                  { text: '히드라', leaf: true },
+                  { text: '운석 낙하', leaf: true },
+                  { text: '눈보라', leaf: true }
+                ]
+              },
+              { text: '창조',
+                items: [
+                  { text: '얼음 갑옷', leaf: true },
+                  { text: '천둥 갑옷', leaf: true },
+                  { text: '마법 무기', leaf: true },
+                  { text: '사역마', leaf: true },
+                  { text: '마력 갑옷', leaf: true }
+                ]
+              },
+              { text: '통달',
+                items: [
+                  { text: '에너지 폭발', leaf: true },
+                  { text: '분신', leaf: true },
+                  { text: '마인', leaf: true },
+                  { text: '블랙홀', leaf: true }
+                ]
+              },
+            ]
+          },
+          {
+            text: '부두술사'
+          },
+          {
+            text: '성전사'
+          },
+          {
+            text: '수도사'
+          },
+          {
+            text: '악마사냥꾼'
+          },
+          {
+            text: '야만용사'
+          }
+        ]
+      }
+    });
 
-    isIconPrecomposed: true,
-
-    startupImage: {
-        '320x460': 'resources/startup/320x460.jpg',
-        '640x920': 'resources/startup/640x920.png',
-        '768x1004': 'resources/startup/768x1004.png',
-        '748x1024': 'resources/startup/748x1024.png',
-        '1536x2008': 'resources/startup/1536x2008.png',
-        '1496x2048': 'resources/startup/1496x2048.png'
-    },
-
-    launch: function() {
-        // Destroy the #appLoadingIndicator element
-        Ext.fly('appLoadingIndicator').destroy();
-
-        // Initialize the main view
-        Ext.Viewport.add(Ext.create('dia3.view.Main'));
-    },
-
-    onUpdated: function() {
-        Ext.Msg.confirm(
-            "Application Update",
-            "This application has just successfully been updated to the latest version. Reload now?",
-            function(buttonId) {
-                if (buttonId === 'yes') {
-                    window.location.reload();
-                }
-            }
-        );
-    }
+    Ext.create('Ext.NestedList', {
+      fullscreen: true,
+      store: treeStore
+    });
+  }
 });
