@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /Users/mickey/myprojects/dia3/app.js
+// @require /Users/minsik/projects/dia3.github.io/app.js
