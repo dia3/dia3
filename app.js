@@ -104,7 +104,19 @@ Ext.application({
 
     Ext.create('Ext.NestedList', {
       fullscreen: true,
-      store: treeStore
+      store: treeStore,
+      detailCard: {},
+      listeners: {
+        leafitemtap: function(nestedList, list, index, target, record) {
+          var detailCard = nestedList.getDetailCard();
+          Ext.Ajax.request({
+            url: 'data/test.html',
+            success: function(response, opts) {
+              detailCard.setHtml(response.responseText);
+            }
+          });
+        }
+      }
     });
   }
 });
