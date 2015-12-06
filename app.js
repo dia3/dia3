@@ -25,80 +25,9 @@ Ext.application({
     var treeStore = Ext.create('Ext.data.TreeStore', {
       model: 'ListItem',
       defaultRootProperty: 'items',
-      root: {
-        items: [
-          {
-            text: '마법사',
-            items: [
-              {
-                text: '주기술',
-                items: [
-                  { text: '마력탄', leaf: true },
-                  { text: '전기 충격', leaf: true },
-                  { text: '저승의 칼날', leaf: true },
-                  { text: '감전', leaf: true }
-                ]
-              },
-              { text: '보조기술',
-                items: [
-                  { text: '서리 광선', leaf: true },
-                  { text: '비전 보주', leaf: true },
-                  { text: '비전 격류', leaf: true },
-                  { text: '파열', leaf: true }
-                ]
-              },
-              { text: '방어',
-                items: [
-                  { text: '서릿발', leaf: true },
-                  { text: '다이아몬드 피부', leaf: true },
-                  { text: '감속 지대', leaf: true },
-                  { text: '순간이동', leaf: true }
-                ]
-              },
-              { text: '위력',
-                items: [
-                  { text: '힘의 파동', leaf: true },
-                  { text: '마력 돌개바람', leaf: true },
-                  { text: '히드라', leaf: true },
-                  { text: '운석 낙하', leaf: true },
-                  { text: '눈보라', leaf: true }
-                ]
-              },
-              { text: '창조',
-                items: [
-                  { text: '얼음 갑옷', leaf: true },
-                  { text: '천둥 갑옷', leaf: true },
-                  { text: '마법 무기', leaf: true },
-                  { text: '사역마', leaf: true },
-                  { text: '마력 갑옷', leaf: true }
-                ]
-              },
-              { text: '통달',
-                items: [
-                  { text: '에너지 폭발', leaf: true },
-                  { text: '분신', leaf: true },
-                  { text: '마인', leaf: true },
-                  { text: '블랙홀', leaf: true }
-                ]
-              },
-            ]
-          },
-          {
-            text: '부두술사'
-          },
-          {
-            text: '성전사'
-          },
-          {
-            text: '수도사'
-          },
-          {
-            text: '악마사냥꾼'
-          },
-          {
-            text: '야만용사'
-          }
-        ]
+      proxy: {
+        type: 'ajax',
+        url: 'test.json'
       }
     });
 
