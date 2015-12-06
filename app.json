@@ -75,6 +75,11 @@
             "path": "resources/css/mountainview.css",
             "theme": "Mountainview",
             "update": "delta"
+        },
+        {
+            "path": "resources/css/my.css",
+            "theme": "Mountainview",
+            "update": "delta"
         }
     ],
 
@@ -106,7 +111,8 @@
     "resources": [
         "resources/images",
         "resources/icons",
-        "resources/startup"
+        "resources/startup",
+        "resources/data"
     ],
 
     /**

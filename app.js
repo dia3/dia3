@@ -103,16 +103,21 @@ Ext.application({
     });
 
     Ext.create('Ext.NestedList', {
+      title: '디아블로3 스킬',
       fullscreen: true,
       store: treeStore,
       detailCard: {},
       listeners: {
         leafitemtap: function(nestedList, list, index, target, record) {
           var detailCard = nestedList.getDetailCard();
+          var detail = record.get('text') + ".html"
           Ext.Ajax.request({
-            url: 'data/test.html',
+            url: 'resources/data/' + detail,
             success: function(response, opts) {
               detailCard.setHtml(response.responseText);
+            },
+            failure: function() {
+              detailCard.setHtml('error');
             }
           });
         }
