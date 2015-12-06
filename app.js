@@ -27,7 +27,7 @@ Ext.application({
       defaultRootProperty: 'items',
       proxy: {
         type: 'ajax',
-        url: 'test.json'
+        url: 'resources/data/skill.json'
       }
     });
 
@@ -35,7 +35,9 @@ Ext.application({
       title: '디아블로3 스킬',
       fullscreen: true,
       store: treeStore,
-      detailCard: {},
+      detailCard: {
+        html: ''
+      },
       listeners: {
         leafitemtap: function(nestedList, list, index, target, record) {
           var detailCard = nestedList.getDetailCard();

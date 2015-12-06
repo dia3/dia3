@@ -46,6 +46,6 @@ cate_hash[:items] = skill_array
 ret_array << cate_hash
 ret_hash = {:items => ret_array}
 
-File.open("test.json", "w") do |f|
+File.open("resource/data/skill.json", "w") do |f|
   f.write(ret_hash.to_json)
 end
