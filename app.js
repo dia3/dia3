@@ -36,6 +36,8 @@ Ext.application({
       fullscreen: true,
       store: treeStore,
       detailCard: {
+        xtype: 'panel',
+        scroll: 'vertical',
         html: ''
       },
       listeners: {
