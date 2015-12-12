@@ -37,7 +37,7 @@ Ext.application({
       store: treeStore,
       detailCard: {
         xtype: 'panel',
-        scroll: 'vertical',
+        scrollable: 'vertical',
         html: ''
       },
       listeners: {
